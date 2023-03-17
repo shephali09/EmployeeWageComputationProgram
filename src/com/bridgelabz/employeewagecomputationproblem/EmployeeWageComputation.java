@@ -1,30 +1,36 @@
 package com.bridgelabz.employeewagecomputationproblem;
 
-/* Add part time employee 
-   and wage */
-
+/*Calculation Employee wage using
+  switch case statement */
+ 
 public class EmployeeWageComputation {
+	
+	public static final int is_part_time=1;
+	public static final int is_full_time=2;
+	public static final int emp_rate_per_hour = 20;
 
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to Employee Wage Computation Program!");
 		
-		int is_part_time=1;
-		int is_full_time=2;
-		int emp_rate_per_hour = 20;
-		
 		int empHrs = 0;
 		int empWage = 0;
 		
-		double empCheck = Math.floor(Math.random() * 10) % 2;
-		if(empCheck == is_part_time) {
+		int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+		
+		switch(empCheck) {
+		case is_part_time:
 			empHrs = 4;
-		} else if(empCheck == is_full_time){
+			break;
+		case is_full_time:
 			empHrs = 8;
-		}else {
+			break;
+		default:
 			empHrs = 0;
 		}
 		empWage = empHrs * emp_rate_per_hour;
 		System.out.println("Emp Wage: " + empWage);
+	
 	}
 }
+
