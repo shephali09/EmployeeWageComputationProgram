@@ -11,8 +11,8 @@ public class EmployeeWageComputation {
 	public static final int is_part_time = 1;
 	public static final int is_full_time = 2;
 	public static final int emp_rate_per_hour = 20;
-	public static final int num_of_working_days = 2;
-	public static final int max_hrs_in_month = 10;
+	public static final int num_of_working_days = 20;
+	public static final int max_hrs_in_month = 100;
 	
 	public static int computeEmpWage() {
 		
@@ -22,7 +22,7 @@ public class EmployeeWageComputation {
 		int totalEmpHrs = 0;
 		int totalWorkingDays = 0;
 
-		while (totalEmpHrs <= max_hrs_in_month && totalWorkingDays <= num_of_working_days) {
+		while (totalEmpHrs <= max_hrs_in_month && totalWorkingDays < num_of_working_days) {
 			totalWorkingDays++;
 			int empCheck = (int) Math.floor(Math.random() * 10) % 3;
 			switch (empCheck) {
