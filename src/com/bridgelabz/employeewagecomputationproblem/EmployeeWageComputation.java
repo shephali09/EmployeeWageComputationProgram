@@ -1,5 +1,8 @@
 package com.bridgelabz.employeewagecomputationproblem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 interface IComputeEmpWage {
 
 	public void addCompanyEmpWage(String company, int wagePerHour, int totalWorkingDays, int maxWorkingHour);
@@ -15,23 +18,25 @@ public class EmployeeWageComputation implements IComputeEmpWage {
 	public static final int is_full_time = 2;
 
 	private int numOfCompany = 0;
-	private CompanyEmpWage[] companyEmpWageArray;
+	private List<CompanyEmpWage> companyEmpWageArray;
 
 	public EmployeeWageComputation() {
-		companyEmpWageArray = new CompanyEmpWage[5];
+		companyEmpWageArray = new ArrayList<>();
 	}
 
 	public void addCompanyEmpWage(String company, int emp_rate_per_hour, int num_of_working_days,
 			int max_hours_in_month) {
-		companyEmpWageArray[numOfCompany] = new CompanyEmpWage(company, emp_rate_per_hour, num_of_working_days,
-				max_hours_in_month);
+		companyEmpWageArray
+				.add(new CompanyEmpWage(company, emp_rate_per_hour, num_of_working_days, max_hours_in_month));
 		numOfCompany++;
 	}
 
 	public void computeEmpWage() {
 		for (int i = 0; i < numOfCompany; i++) {
-			companyEmpWageArray[i].setTotalEmpWage(this.computeEmpWage(companyEmpWageArray[i]));
-			System.out.println(companyEmpWageArray[i]);
+			CompanyEmpWage companyEmpWage = companyEmpWageArray.get(i);
+			companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
+
+			System.out.println(companyEmpWage);
 		}
 
 	}
@@ -65,8 +70,8 @@ public class EmployeeWageComputation implements IComputeEmpWage {
 
 	public void printTotalWage() {
 		for (int i = 0; i < numOfCompany; i++) {
-			System.out.println("Total salary for " + companyEmpWageArray[i].getCompany() + ": $"
-					+ companyEmpWageArray[i].getTotalEmpWage());
+			System.out.println("Total salary for " + companyEmpWageArray.get(i).getCompany() + ": $"
+					+ companyEmpWageArray.get(i).getTotalEmpWage());
 		}
 	}
 
