@@ -54,7 +54,7 @@ public class EmployeeWageComputation implements IComputeEmpWage {
 			switch (empCheck) {
 			case is_part_time:
 				empHrs = 4;
-				break;
+				break;					
 			case is_full_time:
 				empHrs = 8;
 				break;
@@ -72,6 +72,9 @@ public class EmployeeWageComputation implements IComputeEmpWage {
 		for (int i = 0; i < numOfCompany; i++) {
 			System.out.println("Total salary for " + companyEmpWageArray.get(i).getCompany() + ": $"
 					+ companyEmpWageArray.get(i).getTotalEmpWage());
+			System.out.println("Daily Wages for " + companyEmpWageArray.get(i).getCompany() + " : $"
+					+ companyEmpWageArray.get(i).getDailyWages());
+			
 		}
 	}
 
