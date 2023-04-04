@@ -45,7 +45,7 @@ public class CompanyEmpWage {
 	public void setTotalEmpWage(int totalEmpWage) {
 		this.totalEmpWage = totalEmpWage;
 	}
-	
+
 	public void addDailyWage(int dailyWage) {
 		this.dailyWages.add(dailyWage);
 	}
@@ -60,7 +60,5 @@ public class CompanyEmpWage {
 				+ ", num_of_working_days=" + num_of_working_days + ", max_hours_in_month=" + max_hours_in_month
 				+ ", totalEmpWage=" + totalEmpWage + ", dailyWages=" + dailyWages + "]";
 	}
-
-	
 
 }
